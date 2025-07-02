@@ -18,7 +18,6 @@ echo "Installing Admin Panel"
 mkdir admin
 cd admin
 curl -sL https://github.com/cheshire-cat-ai/admin-vue/releases/download/Admin/release.zip | jar -xv
-rm release.zip
 cd ..
 
 # 2. Upgrade pip
