@@ -3,20 +3,19 @@
 set -e  # Exit on first error
 echo "🚀 Starting installation of dependencies on the host system..."
 
-echo "📥 Cloning Cheshire Cat Core repository..."
-git clone https://github.com/cheshire-cat-ai/core.git
-cd core/core
+echo "📥 Installing Admin Panel release version"
+mkdir /admin
+cd /admin
+curl -sL https://github.com/cheshire-cat-ai/admin-vue/releases/download/Admin/release.zip | jar -xv
+cd -
 
 echo "🛠️ Updating system and installing base packages..."
 sudo apt-get update
 sudo apt-get install -y curl build-essential fastjar libmagic-mgc libmagic1 mime-support python3.10 python3.10-venv python3-pip
 
-echo "📥 Installing Admin Panel"
-mkdir /admin
-cd /admin
-curl -sL https://github.com/cheshire-cat-ai/admin-vue/releases/download/Admin/release.zip | jar -xv
-cd -
-cd core
+echo "📥 Cloning Cheshire Cat Core repository..."
+git clone https://github.com/cheshire-cat-ai/core.git
+cd core/core
 
 echo "🐍 Creating Python virtual environment..."
 python3.11 -m venv venv
