@@ -12,10 +12,11 @@ sudo apt-get update
 sudo apt-get install -y curl build-essential fastjar libmagic-mgc libmagic1 mime-support python3.10 python3.10-venv python3-pip
 
 echo "📥 Installing Admin Panel"
-mkdir admin
-cd admin
+mkdir /admin
+cd /admin
 curl -sL https://github.com/cheshire-cat-ai/admin-vue/releases/download/Admin/release.zip | jar -xv
-cd ..
+cd -
+cd core
 
 echo "🐍 Creating Python virtual environment..."
 python3.11 -m venv venv
